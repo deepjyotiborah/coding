@@ -4,7 +4,7 @@ import com.sun.glass.events.mac.NpapiEvent;
 
 public class SinglyLinkedList {
 
-    Node head;
+    protected static  Node head;
 
     class Node {
         int data;
@@ -15,7 +15,7 @@ public class SinglyLinkedList {
         }
     }
 
-    private void insertBeginning(int value) {
+    protected void insertBeginning(int value) {
         if(head == null) {
             head = new Node(value);
             return;
@@ -26,7 +26,7 @@ public class SinglyLinkedList {
         head = newNode;
     }
 
-    private void append(int value) {
+    protected void append(int value) {
         if(head == null) {
             head = new Node(value);
             return;
@@ -85,7 +85,39 @@ public class SinglyLinkedList {
         prev.next = cur.next;
     }
 
-    private void displayList() {
+    /*
+    Traverse linked list using two pointers. Move one pointer by one and other pointer by two.
+    When the fast pointer reaches end slow pointer will reach middle of the linked list.
+     */
+    private void printMiddleElementMethod1() {
+        Node slow_Ptr = head;
+        Node fast_Ptr = head;
+
+
+        while (fast_Ptr != null && fast_Ptr.next != null) {
+            fast_Ptr = fast_Ptr.next.next;
+            slow_Ptr = slow_Ptr.next;
+        }
+
+        System.out.println("Mid element by method1 is - " + slow_Ptr.data);
+    }
+
+    private void printMiddleElementMethod2() {
+        Node cur = head;
+        Node mid = head;
+        int count = 0;
+        while (cur != null) {
+            if(count % 2 !=0) {
+                mid = mid.next;
+            }
+            count++;
+            cur = cur.next;
+        }
+
+        System.out.println("Mid element by method2 is " + mid.data);
+    }
+
+    protected void displayList() {
         Node cur = head;
         while (cur != null) {
             System.out.print(cur.data + " ");
@@ -99,10 +131,12 @@ public class SinglyLinkedList {
         singlyLinkedList.append(10);
         singlyLinkedList.append(30);
         singlyLinkedList.append(50);
-        singlyLinkedList.append(60);
+        //singlyLinkedList.append(60);
         singlyLinkedList.insertBeginning(5);
         singlyLinkedList.insertBeginning(20);
         singlyLinkedList.displayList();
+        singlyLinkedList.printMiddleElementMethod1();
+        singlyLinkedList.printMiddleElementMethod2();
         singlyLinkedList.deleteNode(5);
         singlyLinkedList.displayList();
         singlyLinkedList.deleteAtPosition(5);
