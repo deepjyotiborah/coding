@@ -6,6 +6,11 @@ public class SinglyLinkedList {
 
     protected static  Node head;
 
+
+    public static Node getHead() {
+        return head;
+    }
+
     class Node {
         int data;
         Node next;
