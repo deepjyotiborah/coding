@@ -10,11 +10,11 @@ public class Stack {
         this.top = -1;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return top < 0;
     }
 
-    private void push(int item) {
+    public void push(int item) {
         if(top == MAX - 1) {
             System.out.println("Stack overflow.");
             return;
@@ -23,17 +23,18 @@ public class Stack {
         System.out.println(item + " pushed into the stack.");
     }
 
-    private void pop() {
+    public int pop() {
         if(isEmpty()) {
             System.out.println("Stack is empty.");
-            return;
+            System.exit(0);
         }
 
         int itm = stack[top--];
         System.out.println(itm + " is removed from stack.");
+        return itm;
     }
 
-    private void display() {
+    public void display() {
         for(int i = 0; i <= top; i++) {
             System.out.print(stack[i] + " ");
         }
@@ -46,6 +47,10 @@ public class Stack {
         stack.push(30);
         stack.push(40);
         stack.display();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
         stack.pop();
         stack.display();
     }
