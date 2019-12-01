@@ -5,7 +5,7 @@ package com.deep.datastructure.linkedList.singlyLinkedList;
     If these pointers meet at the same node then there is a loop. If pointers do not meet then linked list doesn’t have a loop.
  */
 
-public class DetectLoopInList extends SinglyLinkedList {
+public class DetectAndCountNodeaInLoop extends SinglyLinkedList {
     private void detectLoop() {
         Node slow_Ptr = head, fast_Ptr = head;
 
@@ -15,6 +15,7 @@ public class DetectLoopInList extends SinglyLinkedList {
 
             if(slow_Ptr == fast_Ptr) {
                 System.out.println("Loop detected.");
+                countNodesInLoop(slow_Ptr);
                 return;
             }
         }
@@ -22,8 +23,19 @@ public class DetectLoopInList extends SinglyLinkedList {
         System.out.println("No loop detected.");
     }
 
+    private void countNodesInLoop(Node node_Ptr) {
+        Node temp = node_Ptr;
+        int res = 1;
+        while (temp.next != node_Ptr) {
+            temp = temp.next;
+            res++;
+        }
+
+        System.out.println("No. of nodes in loop are - " + res);
+    }
+
     public static void main(String[] args) {
-        DetectLoopInList detectLoopInList = new DetectLoopInList();
+        DetectAndCountNodeaInLoop detectLoopInList = new DetectAndCountNodeaInLoop();
         detectLoopInList.append(20);
         detectLoopInList.append(4);
         detectLoopInList.append(15);
