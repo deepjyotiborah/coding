@@ -7,6 +7,7 @@ import java.util.Stack;
 public class InorderWithoutRecursion {
 
     private void inorder(BinaryTree.Node root) {
+        
         BinaryTree.Node cur = root;
         Stack<BinaryTree.Node> nodeStack = new Stack();
         while (cur != null || nodeStack.size() > 0) {
