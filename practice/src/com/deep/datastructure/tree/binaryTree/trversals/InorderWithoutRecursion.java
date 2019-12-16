@@ -7,16 +7,22 @@ import java.util.Stack;
 public class InorderWithoutRecursion {
 
     private void inorder(BinaryTree.Node root) {
-        
+
         BinaryTree.Node cur = root;
         Stack<BinaryTree.Node> nodeStack = new Stack();
         while (cur != null || nodeStack.size() > 0) {
+            /* Reach the left most Node of the curr Node */
             while (cur != null) {
+                /* place pointer to a tree node on the stack before traversing the node's left subtree */
                 nodeStack.push(cur);
                 cur = cur.left;
             }
+
+            /* Current must be NULL at this point */
             cur = nodeStack.pop();
             System.out.print(cur.key + " ");
+
+            /* we have visited the node and its left subtree.  Now, it's right subtree's turn */
             cur = cur.right;
         }
     }
