@@ -14,7 +14,7 @@ public class ProducerCallback implements Callback {
                     + "Topic: " + recordMetadata.topic() + "\n"
                     + "Partition: " + recordMetadata.partition() + "\n"
                     + "Offset: " + recordMetadata.offset() + "\n"
-                    + "Timestamp: " + recordMetadata.timestamp());
+                    + "Timestamp: " + recordMetadata.timestamp() + "\n");
         } else {
             LOGGER.error("Exception while producing. " + e.getMessage());
         }
