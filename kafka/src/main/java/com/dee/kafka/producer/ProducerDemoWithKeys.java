@@ -24,7 +24,7 @@ public class ProducerDemoWithKeys {
         //Create the producer
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
-        for (int i = 0; i < 5 ; i++ ) {
+        for (int i = 0; i < 20 ; i++ ) {
             //Create producer record
             ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(topic, key+i,message + i);
             System.out.println("Key - " + (key+i));
