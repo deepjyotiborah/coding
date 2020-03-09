@@ -5,11 +5,26 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 public class ProducerDemoWithKeys {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+
+        Optional<String> op
+                = Optional.empty();
+
+        // print value
+        System.out.println("Optional: "
+                + op);
+
+        if (op.isPresent()) {
+            System.out.println(" Empty present");
+        } else {
+            System.out.println("Empty not present");
+        }
 
         String bootstrapServer = "127.0.0.1:9092";
         String topic = "first_Topic";
