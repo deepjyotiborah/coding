@@ -10,6 +10,7 @@ import java.util.ArrayDeque;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
+
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         if("Deep".equalsIgnoreCase(userName)) {
