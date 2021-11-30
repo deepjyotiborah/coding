@@ -1,7 +1,7 @@
 package com.deep.algoritms.sorting.quickSort;
 
 import java.util.Arrays;
-
+// 5 2 4 3 -> 2 5 4 3 -> 2 3 4 5
 public class QuickSort {
     private int partition(int arr[], int l, int h) {
 

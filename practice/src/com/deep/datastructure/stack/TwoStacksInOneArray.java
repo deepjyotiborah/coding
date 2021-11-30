@@ -1,7 +1,5 @@
 package com.deep.datastructure.stack;
 
-import com.deep.algoritms.sorting.mergeSort.MergeSort;
-
 public class TwoStacksInOneArray {
     private final int MAX = 10;
     private int topLeft, topRight;
